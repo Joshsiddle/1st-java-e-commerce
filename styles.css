@@ -117,16 +117,19 @@ input {
     font-size: 50px;
     margin-bottom: 30px;
     color: rgb(51, 92, 149);
+    animation: fade-up 650ms 600ms backwards;
 }
 
 .landing__subtitle {
     font-size: 30px;
     margin-bottom: 30px;
+    animation: fade-up 650ms 800ms backwards;
 }
 
 .input--wrapper {
     display: flex;
     width: 100%;
+    animation: fade-up 650ms 850ms backwards;
 }
 
 .btn {
@@ -148,6 +151,63 @@ input {
 .landing__img {
     padding: 36px;
     height: 400px;
+    animation: fade-in 650ms 1000ms backwards;
+}
+
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* SEARCH */
+
+.content__title {
+    font-size: 45px;
+    padding: 40px 0 40px 0;
+}
+
+.content__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#filter {
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.overlay {
+    background-image: url(./assets/overlay.jpg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    height: 60vh;
 }
 
 /* PRODUCTS */
@@ -156,10 +216,12 @@ input {
     width: auto;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .product {
     width: 50%;
+    margin: 0 auto;
 }
 
 .product-card {
@@ -169,6 +231,8 @@ input {
     transition: 0.3s;
     cursor: pointer;
     border-radius: 10px;
+    width: 30%;
+    height: 60vh;
 }
 
 .product-card:hover {
@@ -176,5 +240,27 @@ input {
 }
 
 .product-card__container {
-    padding: 2px 16px;
+    padding: 40px 40px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
 }
+
+.product__img {
+    height: 45%;
+}
+
+.product__info--wrapper {
+    border-top: 1px dashed rgb(86, 122, 171);
+    padding-top: 8px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
+}
+

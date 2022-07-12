@@ -4,6 +4,11 @@ async function main() {
     const products = await fetch('https://fakestoreapi.com/products');
     const productsData = await products.json();
     const productListEL = document.querySelector(".product-list");
+    const searchInput = document.querySelector("[data-search]")
+
+    searchInput.addEventListener("input", e => {
+        const value = e.target.value
+    })
 
     productListEL.innerHTML = productsData.map((product) => ` <div class="product-card">
     <div class="product-card__container">

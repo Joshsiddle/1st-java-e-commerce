@@ -19,17 +19,38 @@
             </ul>
         </div>
     </nav>
+    <div class="content__wrapper">
+        <h1 class="content__title">Browse our products</h1>
+        <div class="input__wrapper">
+            <input type="text" placeholder="Search">
+            <div class="search__wrapper">
+                <svg class="fa-solid fa-magnifying-glass"></svg>
+            </div>
+        </div>
+    </div>
+    <div src="./assets/overlay2.jpg" class="overlay"></div>
+    <div>
+        <select id="filter" onchange="filterBooks(event)">
+            <option value="" disabled selected>Sort</option>
+            <option value="LOW_TO_HIGH">Price, Low to High</option>
+            <option value="HIGH_TO_LOW">Price, High to Low</option>
+            <option value="RATING">Rating</option>
+          </select>
+    </div>
     <div class="container">
         <div class="row">
             <div class="product-list">
                 <div class="product">
                     <div class="product-card">
                         <div class="product-card__container">
-                            <h3>Product title</h3>
-                            <p><b>Price:</b>£00.00</p>
-                            <p><b>Category</b>unisex clothing</p>
-                            <p><b>Rating:</b>4.5</p>
-                            <p><b>Count:</b>0000</p>
+                            <img src="" alt="Product image" class="product__img">
+                            <div class="product__info--wrapper">
+                                <h3>Product title</h3>
+                                <p><b>Price:</b>£00.00</p>
+                                <p><b>Category</b>unisex clothing</p>
+                                <p><b>Rating:</b>4.5</p>
+                                <p><b>Count:</b>0000</p>
+                            </div>
                         </div>
                     </div>
                 </div>
