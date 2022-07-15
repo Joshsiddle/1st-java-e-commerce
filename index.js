@@ -1,45 +1,25 @@
+const url = `https://fakestoreapi.com/products`
+fetch(url)
+    .then(response => response.json())
+    .then(data => displayProduct(data))
 
-
-async function main() {
-    const products = await fetch('https://fakestoreapi.com/products');
-    const productsData = await products.json();
-    const productListEL = document.querySelector(".product-list");
-    const searchInput = document.querySelector("[data-search]")
-
-    searchInput.addEventListener("input", e => {
-        const value = e.target.value
-    })
-
-    productListEL.innerHTML = productsData.map((product) => ` <div class="product-card">
-    <div class="product-card__container">
-        <img class="product__img" src=${product.image}>
-        <div class="product__info--wrapper">
-            <h3>${product.title}</h3>
-            <p><b>£${product.price.toFixed(2)}</b></p>
-            <p><b>${product.category}</b></p>
-            <p><b>${ratingsHTML(product.rating.rate)}</b></p>
+const displayProduct = products => {
+    for (product of products) {
+        const displayProduct = document.getElementById('display-product');
+        const div = document.createElement('div');
+        div.innerHTML = `
+    <div id="products-div">
+        <div>
+            <img src="${product.image}" alt="">
+        </div>
+        <div>
+              <h5 id="product-title">${product.title}</h5>
+              <h2 id="product-price">$${product.price}</h2>
+              <b class="rating">${product.rating.rate}⭐</b>
+              <p id="description">${product.description}</p>
         </div>
     </div>
-</div>`).join("");
-}
-
-function ratingsHTML(rate) {
-    let ratingHTML = '';
-
-    for (let i = 0; i < Math.floor(rate); ++i) {
-        ratingHTML += '<i class="fas fa-star"></i>\n';
+        `
+        displayProduct.appendChild(div);
     }
-
-    if (!Number.isInteger(rate)) {
-        ratingHTML += '<i class="fas fa-star-half-alt"></i>\n';
-    }
-    return ratingHTML;
 }
-
-function filterBooks(event) {
-    renderBooks(event.target.value);
-}
-
-
-main();
-
